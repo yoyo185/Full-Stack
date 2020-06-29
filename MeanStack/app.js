@@ -33,10 +33,12 @@ app.get('/api', (req, res) => {
                 error: err
             });
         }
+        // console.log(data);
         const docs = JSON.parse(data);
         res.json(docs);
     });
 });
+
 
 // middleware -
 app.use(morgan('dev'));

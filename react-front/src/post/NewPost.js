@@ -16,7 +16,8 @@ export default class NewPost extends Component {
             error:'',
             user:{},
             fileSize:0,
-            loading:false
+            loading:false,
+            redirectToProfile:false
         };
     }
 
@@ -61,14 +62,14 @@ export default class NewPost extends Component {
             create(userId, token, this.postData)
             .then(data=>{
                 if (data.error) this.setState({error:data.error});
-                else 
-                    console.log("New Post: ",data);
-                    // this.setState({
-                    //     loading:false,
-                    //     title:"",
-                    //     body:"",
-                    //     photo:""
-                    // })
+                // else console.log("New Post: ",data);
+                    this.setState({
+                        loading:false,
+                        title:"",
+                        body:"",
+                        photo:"",
+                        redirectToProfile:true
+                    })
             });
         }
     };
@@ -110,11 +111,11 @@ export default class NewPost extends Component {
      );
 
     render() {
-        const { title, body, photo,user,error,loading}=this.state;
+        const { title, body, photo,user,error,loading,redirectToProfile}=this.state;
 
-        // if (redirectToProfile){
-        //     return <Redirect to={`/user/${id}`}/>;
-        // }
+        if (redirectToProfile){
+            return <Redirect to={`/user/${user._id}`}/>;
+        }
 
         // const photoUrl = id 
         //     ? `${

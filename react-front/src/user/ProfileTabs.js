@@ -5,7 +5,7 @@ import DefaultProfile from "../images/sample.jpg";
 
 export default class ProfileTabs extends Component {
     render() {
-        const {following,followers} = this.props
+        const {following,followers,posts} = this.props
         return (
             <div>
                     {/* following
@@ -81,8 +81,33 @@ export default class ProfileTabs extends Component {
                                 ))}
                         </div>
                         <div className="col-md-4">
+                            <h3 className="text-primary">Posts</h3>
+                            <hr/>
+                            {posts.map((post,i)=>
+                                    (
+                                        <div key={i}>
+
+                                                <div>
+                                                    <Link to={`/post/${post._id}`}>
+                                                    
+                                                        <div>
+                                                            <p className="lead">
+                                                                {post.title}
+                                                            </p>
+                                                        </div>
+                                                    </Link>
+                                                    {/* <p style={{clear:'both'}}>
+                                                        {person.about}
+                                                    </p> */}
+                                                </div>
+                                        
+                                        </div>
+                                    ))}
+                        </div>
+                        <div className="col-md-4">
                             <h3 className="text-primary">Post</h3>
                             <hr/>
+                            {JSON.stringify(posts)}
                         </div>
                     </div>
             </div>
