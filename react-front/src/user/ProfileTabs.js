@@ -96,18 +96,11 @@ export default class ProfileTabs extends Component {
                                                             </p>
                                                         </div>
                                                     </Link>
-                                                    {/* <p style={{clear:'both'}}>
-                                                        {person.about}
-                                                    </p> */}
+
                                                 </div>
                                         
                                         </div>
                                     ))}
-                        </div>
-                        <div className="col-md-4">
-                            <h3 className="text-primary">Post</h3>
-                            <hr/>
-                            {JSON.stringify(posts)}
                         </div>
                     </div>
             </div>
