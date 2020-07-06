@@ -55,7 +55,7 @@ export default class Comment extends Component {
         const userId = isAuthenticated().user._id;
         const token = isAuthenticated().token;
         const postId = this.props.postId;
-
+        // console.log(comment);
         uncomment(userId,token,postId,comment)
         .then(data=>{
             if(data.error){
@@ -69,7 +69,7 @@ export default class Comment extends Component {
     deleteConfirmed = (comment)=>{
         let answer = window.confirm("Are you sure you want to delete your comment?")
         if (answer){
-            this.deleteComment();
+            this.deleteComment(comment);
         }
     };
 

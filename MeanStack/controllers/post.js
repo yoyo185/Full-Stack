@@ -203,7 +203,7 @@ exports.comment = (req,res)=>{
 
 exports.uncomment = (req,res)=>{
     let comment = req.body.comment;
-
+    // console.log(comment);
     Post.findByIdAndUpdate(req.body.postId,
         {$pull:{comments:{_id:comment._id}}},
         {new:true}
