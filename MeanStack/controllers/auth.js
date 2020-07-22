@@ -141,6 +141,7 @@ exports.socialLogin=(req,res)=>{
         }else {
             // update existing user with new social info and login
             req.profile = user;
+            console.log("backend, req body",req.body);
             user = _.extend(user, req.body);
             user.updated = Date.now();
             user.save();

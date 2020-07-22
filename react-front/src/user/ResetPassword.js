@@ -12,6 +12,7 @@ export default class ResetPassword extends Component {
     }
 
     resetPassword = e => {
+        console.log("reset",this.state.newPassword);
         e.preventDefault();
         this.setState({ message: "", error: "" });
  

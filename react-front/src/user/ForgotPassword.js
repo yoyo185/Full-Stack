@@ -11,7 +11,7 @@ export default class ForgotPassword extends Component {
     forgotPassword = e=>{
         e.preventDefault();
         this.setState({message:"",error:""});
-        this.forgotPassword(this.state.email).then(data=>{
+        forgotPassword(this.state.email).then(data=>{
             if (data.error){
                 console.log(data.error);
                 this.setState({error:data.error});

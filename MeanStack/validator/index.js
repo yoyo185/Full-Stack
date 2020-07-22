@@ -77,8 +77,9 @@ exports.userSigninValidator = (request, response, next) => {
 };
 
 exports.passwordResetValidator = (req,res,next)=>{
+    console.log(req, res);
     req.check("newPassword","Password is required").notEmpty();
-    req.check('newpassword')
+    req.check('newPassword')
         .isLength({ min: 6 })
         .withMessage('Password must contain at least 6 characters')
         .matches(/\d/)
